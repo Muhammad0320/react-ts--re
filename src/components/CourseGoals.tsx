@@ -1,15 +1,14 @@
-interface CourseGoalTypes {
-  title: string;
-  description: string;
-}
+import { type PropsWithChildren } from "react";
 
-export function CourseGoals({ title, description }: CourseGoalTypes) {
+type CourseGoalTypes = PropsWithChildren<{ title: string }>;
+
+export function CourseGoals({ title, children }: CourseGoalTypes) {
   return (
     <article>
       <div>
         <h2> {title} </h2>
 
-        <p> {description} </p>
+        <p> {children} </p>
       </div>
 
       <button> DELETE </button>
