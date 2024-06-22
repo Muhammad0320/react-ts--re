@@ -1,8 +1,8 @@
-import { type PropsWithChildren } from "react";
+import { FC, type PropsWithChildren } from "react";
 
 type CourseGoalTypes = PropsWithChildren<{ title: string }>;
 
-export function CourseGoals({ title, children }: CourseGoalTypes) {
+const CourseGoals: FC<CourseGoalTypes> = ({ title, children }) => {
   return (
     <article>
       <div>
@@ -14,4 +14,6 @@ export function CourseGoals({ title, children }: CourseGoalTypes) {
       <button> DELETE </button>
     </article>
   );
-}
+};
+
+export { CourseGoals };

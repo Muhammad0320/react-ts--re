@@ -1,4 +1,4 @@
-import { CourseGoals } from "./components/CourseGoals.tsx";
+import CourseGoals from "./components/CourseGoals.tsx";
 
 export default function App() {
   return (
@@ -10,5 +10,3 @@ export default function App() {
     </main>
   );
 }
-
-
