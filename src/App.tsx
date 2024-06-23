@@ -5,23 +5,22 @@ import { useState } from "react";
 
 type GoalType = {
   title: string;
+  id: number;
   description: string;
 };
 
 export default function App() {
-
-
   const [goals, setGoal] = useState<GoalType[]>([]);
 
   const handleAddGoal = () => {
     const newGoal: GoalType = {
       title: "Master the art of deepwork",
+      id: Math.random(),
       description: "Use every worthy technique of it",
     };
 
     setGoal((prevGoals) => [...prevGoals, newGoal]);
   };
-
 
   return (
     <main>
@@ -30,9 +29,13 @@ export default function App() {
       </Header>
       <button onClick={handleAddGoal}> Add goal </button>
 
-      {goals.map(({ title, description }) => (
-        <CourseGoals title={title}> {description}</CourseGoals>
-      ))}
+      <ul>
+        {goals.map(({ title, description, id }) => (
+          <li key={id}>
+            <CourseGoals title={title}> {description}</CourseGoals>
+          </li>
+        ))}
+      </ul>
     </main>
   );
 }
