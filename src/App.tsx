@@ -3,7 +3,7 @@ import Header from "./components/Header.tsx";
 import goalsImg from "./assets/goals.jpg";
 import { useState } from "react";
 
-type GoalType = {
+export type GoalType = {
   title: string;
   id: number;
   description: string;
@@ -29,13 +29,6 @@ export default function App() {
       </Header>
       <button onClick={handleAddGoal}> Add goal </button>
 
-      <ul>
-        {goals.map(({ title, description, id }) => (
-          <li key={id}>
-            <CourseGoals title={title}> {description}</CourseGoals>
-          </li>
-        ))}
-      </ul>
     </main>
   );
 }
