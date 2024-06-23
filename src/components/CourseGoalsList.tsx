@@ -20,7 +20,12 @@ const CourseGoalsList: FC<PropType> = ({ goals, onDelete }) => {
   let warningBox: ReactNode;
 
   if (goals.length > 3) {
-    warningBox = <InfoBox mode="warning"> You are adding more goals </InfoBox>;
+    warningBox = (
+      <InfoBox mode="warning" severity="low">
+        {" "}
+        You are adding more goals{" "}
+      </InfoBox>
+    );
   }
 
   return (
@@ -41,3 +46,5 @@ const CourseGoalsList: FC<PropType> = ({ goals, onDelete }) => {
 };
 
 export default CourseGoalsList;
+
+
