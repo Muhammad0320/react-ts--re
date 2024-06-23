@@ -1,7 +1,7 @@
-import CourseGoals from "./components/CourseGoals.tsx";
-import Header from "./components/Header.tsx";
-import goalsImg from "./assets/goals.jpg";
 import { useState } from "react";
+import goalsImg from "./assets/goals.jpg";
+import CourseGoalsList from "./components/CourseGoalsList.tsx";
+import Header from "./components/Header.tsx";
 
 export type GoalType = {
   title: string;
@@ -29,6 +29,7 @@ export default function App() {
       </Header>
       <button onClick={handleAddGoal}> Add goal </button>
 
+      <CourseGoalsList goals={goals} />
     </main>
   );
 }
