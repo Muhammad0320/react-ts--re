@@ -1,8 +1,20 @@
 import { FC, PropsWithChildren } from "react";
 
-type InfoBoxTypes = PropsWithChildren<{ mode: "hint" | "warning" }>;
 
-const InfoBox: FC<InfoBoxTypes> = ({ children, mode }) => {
+
+// Working with discriminated unions
+
+type HintInfoType = PropsWithChildren<{ mode: 'hint' }>;
+
+type WarningInfoType = PropsWithChildren<{ mode: 'warning', severity: 'low' | 'high' | 'medium' }>
+
+type InfoBoxTypes =  HintInfoType | WarningInfoType;
+
+
+const InfoBox: FC<InfoBoxTypes> = (props) => {
+
+    const {mode, children} = props
+
   if (mode == "hint") {
     return (
       <aside className="infobox infobox-hint">
@@ -11,8 +23,12 @@ const InfoBox: FC<InfoBoxTypes> = ({ children, mode }) => {
     );
   }
 
+
+  const {severity} = props
+
+  
   return (
-    <aside className="infobox infobox-warning warning--medium">
+    <aside className={`infobox infobox-warning warning--${severity}`}>
       <h2> Warning </h2>
 
       <p> {children} </p>
