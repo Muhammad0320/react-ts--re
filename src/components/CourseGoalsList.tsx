@@ -4,14 +4,18 @@ import CourseGoals from "./CourseGoals";
 
 type PropType = {
   goals: GoalType[];
+  onDelete(id: number): void;
 };
 
-const CourseGoalsList: FC<PropType> = ({ goals }) => {
+const CourseGoalsList: FC<PropType> = ({ goals, onDelete }) => {
   return (
     <ul>
       {goals.map(({ title, description, id }) => (
         <li key={id}>
-          <CourseGoals title={title}> {description}</CourseGoals>
+          <CourseGoals onDelete={onDelete} title={title} id={id}>
+            {" "}
+            {description}
+          </CourseGoals>
         </li>
       ))}
     </ul>
